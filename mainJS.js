@@ -6,7 +6,6 @@ function getComputerChoice(){
 
 // - holds all the logic for the game, once the player has selected an option and a random choice has been made by the computer
 function playRound(playerSelection, computerSelection){
-
   console.log("playerSelection: " + playerSelection + " | computerSelection: " + computerSelection);
 
   // - case insenstive for user-input (playerSelection)
@@ -29,7 +28,6 @@ function playRound(playerSelection, computerSelection){
   }
 
   return verdict;
-
 }
 
 function game(){
@@ -39,9 +37,10 @@ function game(){
   let roundVerdict = "";
 
   console.log("Welcome to Rock, Paper, Scissors!");
+
+  // minimmum 5 round game, then we declare a winner at the end.
   for(let i=0; i<5; i++){
     roundVerdict = "";
-    // - best 3/5, so we play minimum 
     if((playerScore===3 && computerScore<=2) ||
     (computerScore===3 && playerScore<=2)){
       break;
@@ -49,24 +48,18 @@ function game(){
     
     // TODO: keep prompting the player until they enter a valid option
     playerSelection = prompt("Type out a choice: rock, paper, scissors.");
-    console.log("Player has chosen: " + playerSelection);
-    
+
     roundVerdict = playRound(playerSelection, getComputerChoice());
-    console.log(roundVerdict);
     
     // update score!
-    if(roundVerdict==="You lose!"){
-      computerScore++;
-    }
-    else if(roundVerdict==="You win!"){
-      playerScore++;
-    }
+    if(roundVerdict==="You lose!"){ computerScore++; }
+    else if(roundVerdict==="You win!"){ playerScore++; }
 
+    // score printout
     console.log("Score -- Player: " + playerScore + " | Computer: " + computerScore);
   }
 
   if(playerScore > computerScore){ return "Player wins! (:"; }
   else if(playerScore < computerScore){ return "Computer wins! ):" }
   else{ return "It's a tie!" }
-
 }
