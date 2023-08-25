@@ -32,22 +32,15 @@ function playRound(playerSelection, computerSelection){
 
 }
 
-function updateScore(playerScore, computerScore, verdict){
-  if(verdict==="You lose!"){
-    computerScore++;
-  }
-  else if(verdict==="You win!"){
-    playerScore++;
-  }
-}
-
 function game(){
   let playerScore = 0;
   let computerScore = 0;
   let playerSelection = "";
+  let roundVerdict = "";
 
   console.log("Welcome to Rock, Paper, Scissors!");
   for(let i=0; i<5; i++){
+    roundVerdict = "";
     // - best 3/5, so we play minimum 
     if((playerScore===3 && computerScore<=2) ||
     (computerScore===3 && playerScore<=2)){
@@ -58,7 +51,16 @@ function game(){
     playerSelection = prompt("Type out a choice: rock, paper, scissors.");
     console.log("Player has chosen: " + playerSelection);
     
-    console.log(playRound(playerSelection, getComputerChoice()));
+    roundVerdict = playRound(playerSelection, getComputerChoice());
+    console.log(roundVerdict);
+    
+    // update score!
+    if(roundVerdict==="You lose!"){
+      computerScore++;
+    }
+    else if(roundVerdict==="You win!"){
+      playerScore++;
+    }
 
     console.log("Score -- Player: " + playerScore + " | Computer: " + computerScore);
   }
