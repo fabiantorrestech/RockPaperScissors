@@ -41,10 +41,10 @@ function game(){
   // - REMOVED LOOP
 
   roundVerdict = "";
-  if((playerScore===3 && computerScore<=2) ||
-  (computerScore===3 && playerScore<=2)){
-    break;
-  }
+  // if((playerScore===3 && computerScore<=2) ||
+  // (computerScore===3 && playerScore<=2)){
+  //   break;
+  // }
   
   // TODO: keep prompting the player until they enter a valid option
   playerSelection = prompt("Type out a choice: rock, paper, scissors.");
