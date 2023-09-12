@@ -30,43 +30,46 @@ function playRound(playerSelection, computerSelection){
   return verdict;
 }
 
-function game(){
-  let playerScore = 0;
-  let computerScore = 0;
-  let playerSelection = "";
-  let roundVerdict = "";
+// function game(){
+//   let playerScore = 0;
+//   let computerScore = 0;
+//   let playerSelection = "";
+//   let roundVerdict = "";
 
-  console.log("Welcome to Rock, Paper, Scissors!");
+//   console.log("Welcome to Rock, Paper, Scissors!");
 
-  // - REMOVED LOOP
+//   // - REMOVED LOOP
 
-  roundVerdict = "";
-  // if((playerScore===3 && computerScore<=2) ||
-  // (computerScore===3 && playerScore<=2)){
-  //   break;
-  // }
+//   roundVerdict = "";
+//   // if((playerScore===3 && computerScore<=2) ||
+//   // (computerScore===3 && playerScore<=2)){
+//   //   break;
+//   // }
   
-  // TODO: keep prompting the player until they enter a valid option
-  playerSelection = prompt("Type out a choice: rock, paper, scissors.");
+//   // TODO: keep prompting the player until they enter a valid option
+//   playerSelection = prompt("Type out a choice: rock, paper, scissors.");
 
-  roundVerdict = playRound(playerSelection, getComputerChoice());
+//   roundVerdict = playRound(playerSelection, getComputerChoice());
   
-  // update score!
-  if(roundVerdict==="You lose!"){ computerScore++; }
-  else if(roundVerdict==="You win!"){ playerScore++; }
+//   // update score!
+//   if(roundVerdict==="You lose!"){ computerScore++; }
+//   else if(roundVerdict==="You win!"){ playerScore++; }
 
-  // score printout
-  console.log("Score -- Player: " + playerScore + " | Computer: " + computerScore);
+//   // score printout
+//   console.log("Score -- Player: " + playerScore + " | Computer: " + computerScore);
 
-  if(playerScore > computerScore){ return "Player wins! (:"; }
-  else if(playerScore < computerScore){ return "Computer wins! ):" }
-  else{ return "It's a tie!" }
-}
+//   if(playerScore > computerScore){ return "Player wins! (:"; }
+//   else if(playerScore < computerScore){ return "Computer wins! ):" }
+//   else{ return "It's a tie!" }
+// }
 
 let rockButton = document.createElement('button');
 let paperButton = document.createElement('button');
 let scissorsButton = document.createElement('button');
 let playerSelection = "";
+let roundVerdict = "";
+let playerScore = 0;
+let computerScore = 0;
 
 rockButton.textContent = "Rock";
 paperButton.textContent = "Paper";
@@ -75,18 +78,44 @@ scissorsButton.textContent = "Scissors";
 rockButton.addEventListener('click', () => {
   playerSelection = "rock";
   roundVerdict = playRound(playerSelection, getComputerChoice());
+  if(roundVerdict==="You win!"){
+    playerScore++;
+  }
+  else if(roundVerdict==="You lose!"){
+    computerScore++;
+  }
+  scoreboard.textContent = `Player: ${playerScore} --- Computer: ${computerScore}`;
 });
 
 paperButton.addEventListener('click', () => {
   playerSelection = "paper";
   roundVerdict = playRound(playerSelection, getComputerChoice());
+  if(roundVerdict==="You win!"){
+    playerScore++;
+  }
+  else if(roundVerdict==="You lose!"){
+    computerScore++;
+  }
+  scoreboard.textContent = `Player: ${playerScore} --- Computer: ${computerScore}`;
 });
 
 scissorsButton.addEventListener('click', () => {
   playerSelection = "scissors";
   roundVerdict = playRound(playerSelection, getComputerChoice());
+  if(roundVerdict==="You win!"){
+    playerScore++;
+  }
+  else if(roundVerdict==="You lose!"){
+    computerScore++;
+  }
+  scoreboard.textContent = `Player: ${playerScore} --- Computer: ${computerScore}`;
+
 });
 
 document.body.appendChild(rockButton);
 document.body.appendChild(paperButton);
 document.body.appendChild(scissorsButton);
+
+let scoreboard = document.createElement('div');
+document.body.appendChild(scoreboard);
+
