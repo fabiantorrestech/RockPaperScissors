@@ -38,28 +38,55 @@ function game(){
 
   console.log("Welcome to Rock, Paper, Scissors!");
 
-  // minimmum 5 round game, then we declare a winner at the end.
-  for(let i=0; i<5; i++){
-    roundVerdict = "";
-    if((playerScore===3 && computerScore<=2) ||
-    (computerScore===3 && playerScore<=2)){
-      break;
-    }
-    
-    // TODO: keep prompting the player until they enter a valid option
-    playerSelection = prompt("Type out a choice: rock, paper, scissors.");
+  // - REMOVED LOOP
 
-    roundVerdict = playRound(playerSelection, getComputerChoice());
-    
-    // update score!
-    if(roundVerdict==="You lose!"){ computerScore++; }
-    else if(roundVerdict==="You win!"){ playerScore++; }
-
-    // score printout
-    console.log("Score -- Player: " + playerScore + " | Computer: " + computerScore);
+  roundVerdict = "";
+  if((playerScore===3 && computerScore<=2) ||
+  (computerScore===3 && playerScore<=2)){
+    break;
   }
+  
+  // TODO: keep prompting the player until they enter a valid option
+  playerSelection = prompt("Type out a choice: rock, paper, scissors.");
+
+  roundVerdict = playRound(playerSelection, getComputerChoice());
+  
+  // update score!
+  if(roundVerdict==="You lose!"){ computerScore++; }
+  else if(roundVerdict==="You win!"){ playerScore++; }
+
+  // score printout
+  console.log("Score -- Player: " + playerScore + " | Computer: " + computerScore);
 
   if(playerScore > computerScore){ return "Player wins! (:"; }
   else if(playerScore < computerScore){ return "Computer wins! ):" }
   else{ return "It's a tie!" }
 }
+
+let rockButton = document.createElement('button');
+let paperButton = document.createElement('button');
+let scissorsButton = document.createElement('button');
+let playerSelection = "";
+
+rockButton.textContent = "Rock";
+paperButton.textContent = "Paper";
+scissorsButton.textContent = "Scissors";
+
+rockButton.addEventListener('click', () => {
+  playerSelection = "rock";
+  roundVerdict = playRound(playerSelection, getComputerChoice());
+});
+
+paperButton.addEventListener('click', () => {
+  playerSelection = "paper";
+  roundVerdict = playRound(playerSelection, getComputerChoice());
+});
+
+scissorsButton.addEventListener('click', () => {
+  playerSelection = "scissors";
+  roundVerdict = playRound(playerSelection, getComputerChoice());
+});
+
+document.body.appendChild(rockButton);
+document.body.appendChild(paperButton);
+document.body.appendChild(scissorsButton);

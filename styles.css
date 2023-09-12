@@ -8,6 +8,7 @@
 
 .player-decisions-container {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -16,23 +17,13 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
-.decisions-pic-wrapper {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.decisions-pic-wrapper img {
+  border: 4px solid black;
+  border-radius: 10px;
   max-width: 200px;
   max-height: auto;
 }
-
-/* .player-decisions-container img {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.player-decisions-container .pd-pic {
-  width: 320px;
-  height: auto;
-} */
