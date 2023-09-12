@@ -1,0 +1,38 @@
+* {
+  font-family: monospace, 'Times New Roman', Times, serif;
+}
+
+.intro {
+  text-align: center;
+}
+
+.player-decisions-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.decisions {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.decisions-pic-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  max-height: auto;
+}
+
+/* .player-decisions-container img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.player-decisions-container .pd-pic {
+  width: 320px;
+  height: auto;
+} */

@@ -5,11 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Odin Rock Paper Scissors</title>
   <script src="mainJS.js"></script>
+  <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Welcome to my Rock, Paper, Scissors game!</h1>
-  <p>To play, please press F12 to open the developer tools, then go to the 'Console' tab to invoke the Javascript console.</p>
-  <p>Once there, you can type "game();" to start the game (:</p>
-  <p><br>It is a 5-round game, so to play again, you can just repeat the steps again.</p>
+  <div class="intro">
+    <h1> Rock, Paper, Scissors</h1>
+    <p> 
+      This is a single player game, where you will be playing against a CPU.<br>
+      You can make your move each round by clicking on the image of the move you want to play.<br>
+      You must win 3 turns to win the game. <br>
+      Good luck. (:
+    </p>
+  </div>
+
+  <div class="player-decisions-container">
+    <div class="decisions">
+      <div class="decisions-pic-wrapper">
+        <img src="./assets/rock.png" alt="rockPic">
+      </div>
+      <p>Rock</p>
+    </div>
+    <div class="decisions">
+      <div class="decisions-pic-wrapper">
+        <img src="./assets/paper.png" alt="paperPic">
+      </div>
+      <p>Paper</p>
+    </div>
+    <div class="decisions">
+      <div class="decisions-pic-wrapper">
+        <img src="./assets/scissors.png" alt="scissorsPic">
+      </div>
+      <p>Scissors</p>
+    </div>
+
+  </div>
 </body>
 </html>
